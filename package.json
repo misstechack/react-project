@@ -1,0 +1,24 @@
+{
+  "name": "git",
+  "version": "1.0.0",
+  "description": "Coding material of MissTecHack",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "npm run lite",
+	"lite": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misstechack/react-project.git"
+  },
+  "author": "Miss TecHack",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/misstechack/react-project/issues"
+  },
+  "homepage": "https://github.com/misstechack/react-project#readme",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
