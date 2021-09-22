@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar dark color="primary">
+        <Navbar dark color="primary" sticky="top">
           <div className="container">
             <NavbarBrand href="/">
               Be Kind To Every Kind

@@ -1,11 +1,32 @@
 import React, { Component } from 'react';
-import { Card, CardFooter, CardImg, Col, Media, Row } from 'reactstrap';
+import { Card, CardBody, CardFooter, CardImg,CardText, Col, Media, Row, Toast, ToastBody, ToastHeader } from 'reactstrap';
 
 class Menu extends Component {
     constructor(props) {
         super(props);
-    
+        
+        this.state = {
+            selectedType: null
+        }
     }
+
+    onTypeSelect(type) {
+        this.setState({selectedType: type});
+    }
+
+    renderType(type) {
+        if(type != null) {
+            return(
+                <Toast>
+                    <ToastHeader>{type.name}</ToastHeader>
+                    <ToastBody>{type.description}</ToastBody>
+                </Toast>
+            );
+        } else {
+            return(<div></div>);
+        }
+    }
+
     render() {
         const menu = this.props.species.map((sp) => {
             return (
@@ -22,7 +43,7 @@ class Menu extends Component {
                                     sp.types.map((type) => {
                                         return(
                                             <Col sm="3">
-                                                <Card key={type.id}>
+                                                <Card key={type.id} onClick={() => this.onTypeSelect(type)}>
                                                     <CardImg src={type.image} alt={type.name} />
                                                     <CardFooter>{type.name}</CardFooter>
                                                 </Card>
@@ -38,6 +59,9 @@ class Menu extends Component {
         });
         return (
            <div className="container"> 
+                <div className="col-10">
+                    {this.renderType(this.state.selectedType)}
+                </div>
                    <Media list>
                        {menu}
                    </Media>
