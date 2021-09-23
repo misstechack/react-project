@@ -1,24 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Toast, ToastBody, ToastHeader } from 'reactstrap';
 
-class Type extends Component {
-
-  constructor(props) {
-    super(props);
+  function RenderToast({type}) {
+    return(
+        <Toast>
+            <ToastHeader>{type.name}</ToastHeader>
+            <ToastBody>{type.description}</ToastBody>
+        </Toast>
+    );
   }
 
-  render() {
-    if(this.props.type != null) {
+  const Type = (props) => {
+    if(props.type != null) {
         return(
-            <Toast>
-                <ToastHeader>{this.props.type.name}</ToastHeader>
-                <ToastBody>{this.props.type.description}</ToastBody>
-            </Toast>
+        <RenderToast type={props.type} />
         );
     } else {
         return(<div></div>);
     }
   }
-}
-
-export default Type;
+   export default Type;
