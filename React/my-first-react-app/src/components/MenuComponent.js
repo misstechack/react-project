@@ -5,7 +5,7 @@ import Species from './SpeciesComponent';
 function RenderMenu({sp}) {
     return (
         <Media tag="li" className="row">
-            <Media left middle className="col-5">
+            <Media left middle className="col-lg-5 col-md-6 col-sm-6">
                 <Media object src={sp.image} alt={sp.name} />
             </Media>
             <Media body className="col-7">
