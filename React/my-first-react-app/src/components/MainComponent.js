@@ -3,6 +3,8 @@ import Menu from './MenuComponent';
 import { SPECIES } from '../shared/species';
 import Header from './HeaderComponent';
 import RenderFooter from './FooterComponent';
+import Home from './HomeComponent';
+import { Redirect, Route, Switch } from 'react-router';
 
 
 class Main extends Component {
@@ -16,10 +18,19 @@ class Main extends Component {
   }
 
   render() {
+    const HomePage = () => {
+      return(
+        <Home />
+      );
+    }
     return (
       <div>
         <Header/>
-        <Menu species={this.state.species} />
+        <Switch>
+          <Route path="/home" component={HomePage} />
+          <Route exact path="/menu" component={() => <Menu species={this.state.species} />} />
+          <Redirect to="/home" />
+        </Switch>
         <RenderFooter/>
       </div>
     );

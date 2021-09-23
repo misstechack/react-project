@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function RenderFooter() {
+function RenderFooter(props) {
 
         return (
             <div className="footer">
@@ -8,10 +9,10 @@ function RenderFooter() {
                     <div className="row">
                         <div className="col-4 col-sm-8">
                             <ul className="list-unstyled">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Category</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><Link to="/home">Home</Link></li>
+                                <li><Link to="/about">About Us</Link></li>
+                                <li><Link to="category">Category</Link></li>
+                                <li><Link to="/contact">Contact Us</Link></li>
                             </ul>
                         </div>
                         <div className="col-10 col-sm-4">
