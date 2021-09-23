@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand} from 'reactstrap';
 import Menu from './MenuComponent';
 import { SPECIES } from '../shared/species';
+import Header from './HeaderComponent';
+import RenderFooter from './FooterComponent';
 
 
 class Main extends Component {
@@ -17,14 +18,9 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Navbar dark color="primary" sticky="top">
-          <div className="container">
-            <NavbarBrand href="/">
-              Be Kind To Every Kind
-            </NavbarBrand>
-          </div>
-        </Navbar>
+        <Header/>
         <Menu species={this.state.species} />
+        <RenderFooter/>
       </div>
     );
   }

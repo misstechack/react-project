@@ -1,0 +1,19 @@
+.footer {
+    background-color:black;
+    color: white;
+    margin: 0px;
+    padding: 20px;
+}
+
+.jumbotron {
+    padding: 70px 30px 70px 30px;
+    color: whitesmoke;
+    background-color: goldenrod;
+}
+.navbar-dark {
+    background-color: black;
+    color: white;
+}
+.btn-social-icon {
+    margin: 5px;
+}
