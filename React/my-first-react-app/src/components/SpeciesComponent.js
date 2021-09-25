@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Card, CardFooter, CardImg, Col, Row } from 'reactstrap';
-import Type from './TypeComponent';
-
+import { TYPES } from '../shared/types';
+import Type from './TypeComponent.js';
 class Species extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      selectedType: null
+      selectedType: null,
+      types: TYPES
     }
   }
 
@@ -17,7 +18,7 @@ class Species extends Component {
   }
 
   render() {
-    const species_type = this.props.species.map((type) => { 
+    const species_type = this.state.types.filter((type) => type.speciesId === this.props.spId).map((type) => { 
         return (
         <Col sm="3">
             <Card key={type.id} onClick={() => this.onTypeSelect(type)}>

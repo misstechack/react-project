@@ -11,7 +11,7 @@ function RenderMenu({sp}) {
             <Media body className="col-7">
                 <Media heading>{sp.name}</Media>
                 <p>{sp.description}</p>
-                <Species species = {sp.types} />
+                <Species spId = {sp.id} />
             </Media>
         </Media>
     );

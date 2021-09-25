@@ -4,8 +4,8 @@ import { SPECIES } from '../shared/species';
 import Header from './HeaderComponent';
 import RenderFooter from './FooterComponent';
 import Home from './HomeComponent';
+import Contact from './ContactComponent';
 import { Redirect, Route, Switch } from 'react-router';
-
 
 class Main extends Component {
 
@@ -20,7 +20,7 @@ class Main extends Component {
   render() {
     const HomePage = () => {
       return(
-        <Home />
+        <Home species={this.state.species.filter((sp) => sp.featured)} />
       );
     }
     return (
@@ -28,7 +28,8 @@ class Main extends Component {
         <Header/>
         <Switch>
           <Route path="/home" component={HomePage} />
-          <Route exact path="/menu" component={() => <Menu species={this.state.species} />} />
+          <Route exact path="/category" component={() => <Menu species={this.state.species} />} />
+          <Route exact path="/contact" component={Contact} />
           <Redirect to="/home" />
         </Switch>
         <RenderFooter/>
