@@ -1,10 +1,21 @@
 import React from 'react';
-import { Card, CardBody,CardHeader } from 'reactstrap';
-import Leader from './LeaderComponent';
+import { Card, CardBody,CardHeader, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import Team from './TeamComponent';
+import { Link } from 'react-router-dom';
 
 const About = (props) => {
     return(
         <div className="container mt-5 mb-5">
+            <div className="row">
+                <Breadcrumb>
+                    <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>About Us</BreadcrumbItem>
+                </Breadcrumb>
+                <div>
+                    <h3>About Us</h3>
+                </div>
+                <hr/>
+            </div>
             <Card>
                 <CardHeader><b>About BKTEK</b></CardHeader>
                 <CardBody>
@@ -13,7 +24,7 @@ const About = (props) => {
                     BKTEK works to help local communities conserve the natural resources they depend upon; transform markets and policies toward sustainability; and protect and restore species and their habitats. Our efforts ensure that the value of nature is reflected in decision-making from a local to a global scale.
                 </CardBody>
             </Card>
-            <Leader/>
+            <Team/>
         </div>
     );
 }

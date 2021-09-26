@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardFooter, CardImg, Col, Row } from 'reactstrap';
 import { TYPES } from '../shared/types';
 import Type from './TypeComponent.js';
+
 class Species extends Component {
 
   constructor(props) {
