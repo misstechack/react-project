@@ -22,3 +22,13 @@
     height: 4em;
     border-radius: 50%;
 }
+.leaderImg {
+    width: 8em;
+    height: 8em;
+    margin: 10px;
+    border-radius: 50%;
+}
+.leader-card {
+    padding: 5px;
+    margin-bottom: 5px;
+}

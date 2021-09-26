@@ -6,6 +6,7 @@ import RenderFooter from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import { Redirect, Route, Switch } from 'react-router';
+import About from './AboutComponent';
 
 class Main extends Component {
 
@@ -13,7 +14,7 @@ class Main extends Component {
     super(props);
 
     this.state = {
-      species: SPECIES
+      species: SPECIES,
     };
   }
 
@@ -30,6 +31,7 @@ class Main extends Component {
           <Route path="/home" component={HomePage} />
           <Route exact path="/category" component={() => <Menu species={this.state.species} />} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/about" component={About} />
           <Redirect to="/home" />
         </Switch>
         <RenderFooter/>
