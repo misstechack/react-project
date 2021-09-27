@@ -56,3 +56,6 @@ margin-right: 0.5rem;
 button[type="submit"] {
 margin-top: 0.5rem;
 }
+.modal-open[style] {
+    padding-right: 0px !important;
+}
