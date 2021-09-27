@@ -36,3 +36,23 @@
     width: 8em;
     height: 10em;
 }
+form {
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.25);
+    border-top: 5px solid goldenrod;
+}
+input[type="text"], input[type="password"],
+input[type="tel"], input[type="email"] {
+    margin-bottom: 0.5rem;
+}
+.invalid-feedback {
+    margin-bottom: 0.5rem;
+}
+input[type="checkbox"] {
+margin-right: 0.5rem;
+}
+
+button[type="submit"] {
+margin-top: 0.5rem;
+}
