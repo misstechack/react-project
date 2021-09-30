@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Input, Label, Row, Col } from 'reactstrap';
+import { Button, Label, Row, Col } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
 const required = (val) => val && val.length;
@@ -53,7 +53,7 @@ class Newsletter extends Component {
                                 <Col md={{size:10, offset: 2}}>
                                     <div className="form-check">
                                         <Label check>
-                                            <Input type="checkbox" name="agree"
+                                            <Control.checkbox model=".agree" id="agree" name="agree"
                                             className="form-check-input" />
                                             {'   '}
                                             <strong>By signing up, you will receive emails about BKTEK events and updates.</strong>
