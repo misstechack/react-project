@@ -113,7 +113,7 @@ class Contact extends Component {
                     <div className="col-12 mt-5 ">
                         <h3>Send us your Feedback!!</h3>
                     </div>
-                    <div className="col-12 col-md-9">
+                    <div className="col-12 col-md-12">
                         <Form onSubmit={this.handleSubmit}>
                             <FormGroup row>
                                 <Label htmlFor="firstname" md={2}>First Name</Label>

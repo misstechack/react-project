@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Breadcrumb, BreadcrumbItem } from 'reactstrap';
-import { Redirect, Route, Switch } from 'react-router';
+import { Redirect, Route, Switch, withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import Category from './CategoryComponent';
@@ -9,27 +9,22 @@ import RenderFooter from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
-
-import { SPECIES } from '../shared/species';
-import { TEAM } from '../shared/team';
 import Leader from './LeaderComponent';
+import { connect } from 'react-redux';
 
+const mapStateToProps = state => {
+  return {
+    species: state.species,
+    leaders: state.leaders
+  }
+}
 
 class Main extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      species: SPECIES,
-      leaders: TEAM
-    };
-  }
 
   render() {
     const HomePage = () => {
       return(
-        <Home species={this.state.species.filter((sp) => sp.featured)} />
+        <Home species={this.props.species.filter((sp) => sp.featured)} />
       );
     }
     const LeaderWithId = ({match}) => {
@@ -42,7 +37,7 @@ class Main extends Component {
                       <BreadcrumbItem active>Team Leaders</BreadcrumbItem>
                   </Breadcrumb>
               </div>
-          <Leader leader={this.state.leaders.filter((leader) => leader.id === parseInt(match.params.leaderId, 10))[0]} />
+          <Leader leader={this.props.leaders.filter((leader) => leader.id === parseInt(match.params.leaderId, 10))[0]} />
         </div>
       );
     }
@@ -51,7 +46,7 @@ class Main extends Component {
         <Header/>
         <Switch>
           <Route path="/home" component={HomePage} />
-          <Route exact path="/category" component={() => <Category species={this.state.species} />} />
+          <Route exact path="/category" component={() => <Category species={this.props.species} />} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
           <Route path="/about/leader/:leaderId" component={LeaderWithId} />
@@ -63,4 +58,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));
