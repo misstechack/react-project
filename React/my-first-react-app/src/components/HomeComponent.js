@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardFooter, CardText, CardImg, Col, Row } from 'reactstrap';
+import Newsletter from './NewletterComponent';
 
 function Home(props) {
     const home = props.species.map((sp) => {
@@ -20,6 +21,7 @@ function Home(props) {
             <Row>
                 {home}
             </Row>
+            <Newsletter/>
         </div>
     );
 }
