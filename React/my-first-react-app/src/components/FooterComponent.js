@@ -13,6 +13,7 @@ function RenderFooter(props) {
                                 <li><Link to="/about">About Us</Link></li>
                                 <li><Link to="category">Category</Link></li>
                                 <li><Link to="/contact">Contact Us</Link></li>
+                                <li><Link to="/savewildlife">Save Wildlife</Link></li>
                             </ul>
                         </div>
                         <div className="col-10 col-sm-4">

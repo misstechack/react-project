@@ -98,6 +98,12 @@ class Header extends Component {
                                     <span> Contact Us </span>
                                 </NavLink>
                             </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link" to='/savewildlife'>
+                                    <span className="fa fa-paw fa-lg"></span>
+                                    <span> Save Wildlife </span>
+                                </NavLink>
+                            </NavItem>
                         </Nav>
                         <Nav className="ms-auto" navbar>
                             <NavItem>

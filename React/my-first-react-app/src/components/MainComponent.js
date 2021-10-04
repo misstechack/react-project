@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Redirect, Route, Switch, withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Category from './CategoryComponent';
 import Header from './HeaderComponent';
@@ -10,12 +11,13 @@ import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
 import Leader from './LeaderComponent';
-import { connect } from 'react-redux';
+import SaveWildlife from './SaveWildlifeComponent';
 
 const mapStateToProps = state => {
   return {
     species: state.species,
-    leaders: state.leaders
+    leaders: state.leaders,
+    suggestions: state.suggestions
   }
 }
 
@@ -50,6 +52,7 @@ class Main extends Component {
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
           <Route path="/about/leader/:leaderId" component={LeaderWithId} />
+          <Route path="/savewildlife" component={() => <SaveWildlife suggestions={this.props.suggestions} />} />
           <Redirect to="/home" />
         </Switch>
         <RenderFooter/>
