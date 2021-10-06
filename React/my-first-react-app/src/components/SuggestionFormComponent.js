@@ -10,7 +10,8 @@ class SuggestionForm extends Component {
     }
 
     handleSubmit(values) {
-        alert('Current State is: ' + JSON.stringify(values));
+        // alert('Current State is: ' + JSON.stringify(values));
+        this.props.addSuggestion("Anonymous", values.suggestion);
     }
 
     render() {

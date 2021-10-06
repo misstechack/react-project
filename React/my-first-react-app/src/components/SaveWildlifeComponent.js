@@ -8,7 +8,8 @@ class SaveWildlife extends Component {
         super(props);
 
         this.state = {
-            suggestions: props.suggestions
+            suggestions: props.suggestions,
+            addSuggestion: props.addSuggestion
         }
     }
 
@@ -16,7 +17,7 @@ class SaveWildlife extends Component {
         return(
             <div className="container">
                 <DisplaySuggestion suggestions={this.state.suggestions} />
-                <SuggestionForm />
+                <SuggestionForm addSuggestion={this.state.addSuggestion} />
             </div>
         );
     }

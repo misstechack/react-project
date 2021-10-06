@@ -12,6 +12,7 @@ import Contact from './ContactComponent';
 import About from './AboutComponent';
 import Leader from './LeaderComponent';
 import SaveWildlife from './SaveWildlifeComponent';
+import { addSuggestion } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
   return {
@@ -20,6 +21,10 @@ const mapStateToProps = state => {
     suggestions: state.suggestions
   }
 }
+
+const mapStateToDispatch = (dispatch) => ({
+  addSuggestion: (author, message) => dispatch(addSuggestion(author, message))
+});
 
 class Main extends Component {
 
@@ -52,7 +57,8 @@ class Main extends Component {
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
           <Route path="/about/leader/:leaderId" component={LeaderWithId} />
-          <Route path="/savewildlife" component={() => <SaveWildlife suggestions={this.props.suggestions} />} />
+          <Route path="/savewildlife" component={() => <SaveWildlife 
+          suggestions={this.props.suggestions} addSuggestion={this.props.addSuggestion} />} />
           <Redirect to="/home" />
         </Switch>
         <RenderFooter/>
@@ -61,4 +67,4 @@ class Main extends Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Main));
+export default withRouter(connect(mapStateToProps, mapStateToDispatch)(Main));

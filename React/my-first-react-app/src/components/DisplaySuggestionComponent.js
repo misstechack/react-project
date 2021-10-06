@@ -7,6 +7,7 @@ import { Media } from 'reactstrap';
         <Media tag="li" className="row suggestion-card">
             <Media body className="col-7">
                 <Media heading>{suggestion.author}</Media>
+                <Media sub-heading><b>{suggestion.date}</b></Media>
                 <p>{suggestion.message}</p>
             </Media>
         </Media>
