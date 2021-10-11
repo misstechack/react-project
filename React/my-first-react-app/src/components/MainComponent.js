@@ -13,6 +13,8 @@ import About from './AboutComponent';
 import Leader from './LeaderComponent';
 import SaveWildlife from './SaveWildlifeComponent';
 import { addSuggestion, fetchSpecies } from '../redux/ActionCreators';
+import { actions } from 'react-redux-form';
+
 
 const mapStateToProps = state => {
   return {
@@ -24,7 +26,8 @@ const mapStateToProps = state => {
 
 const mapStateToDispatch = (dispatch) => ({
   addSuggestion: (author, message) => dispatch(addSuggestion(author, message)),
-  fetchSpecies: () => { dispatch(fetchSpecies())}
+  fetchSpecies: () => { dispatch(fetchSpecies())},
+  resetNewsletterForm: () => {dispatch(actions.reset('newsletter'))}
 });
 
 class Main extends Component {
@@ -40,6 +43,7 @@ class Main extends Component {
         species={this.props.species.species.filter((sp) => sp.featured)} 
         speciesLoading={this.props.species.isLoading}
 		    speciesFailed={this.props.species.errormsg}
+        resetNewsletterForm={this.props.resetNewsletterForm}
         />
       );
     }
@@ -62,7 +66,7 @@ class Main extends Component {
         <Header/>
         <Switch>
           <Route path="/home" component={HomePage} />
-          <Route exact path="/category" component={() => <Category species={this.props.species} />} />
+          <Route exact path="/category" component={() => <Category species={this.props.species.species} />} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
           <Route path="/about/leader/:leaderId" component={LeaderWithId} />

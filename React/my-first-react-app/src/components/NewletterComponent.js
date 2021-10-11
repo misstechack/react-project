@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Label, Row, Col } from 'reactstrap';
-import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Control, Form, Errors } from 'react-redux-form';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -16,6 +16,7 @@ class Newsletter extends Component {
 
     handleSubmit(values) {
         alert('Current State is: ' + JSON.stringify(values));
+        this.props.resetNewsletterForm();
     }
 
     render() {
@@ -26,7 +27,7 @@ class Newsletter extends Component {
                         <h3>Subscribe to our Newsletter</h3>
                     </div>
                     <div className="col-12 col-md-12">
-                        <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+                        <Form model="newsletter" onSubmit={(values) => this.handleSubmit(values)}>
                             <Row className="form-group">
                                 <Label htmlFor="email" md={2}>Email</Label>
                                 <Col md={10}>
@@ -70,7 +71,7 @@ class Newsletter extends Component {
                                     </Button>                                
                                 </Col>
                                 </Row>
-                        </LocalForm>
+                        </Form>
                     </div>
                 </div>
             </div>
