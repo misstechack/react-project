@@ -3,7 +3,7 @@ import { Species } from './species';
 import { Suggestions } from './suggestions';
 import { Leaders } from './team';
 
-export const ConfigureNewStore = () => {
+export const ConfigureStore2 = () => {
 
     const store = createStore(
         combineReducers({

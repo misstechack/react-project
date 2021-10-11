@@ -12,7 +12,7 @@ import Contact from './ContactComponent';
 import About from './AboutComponent';
 import Leader from './LeaderComponent';
 import SaveWildlife from './SaveWildlifeComponent';
-import { addSuggestion } from '../redux/ActionCreators';
+import { addSuggestion, fetchSpecies } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
   return {
@@ -23,15 +23,24 @@ const mapStateToProps = state => {
 }
 
 const mapStateToDispatch = (dispatch) => ({
-  addSuggestion: (author, message) => dispatch(addSuggestion(author, message))
+  addSuggestion: (author, message) => dispatch(addSuggestion(author, message)),
+  fetchSpecies: () => { dispatch(fetchSpecies())}
 });
 
 class Main extends Component {
 
+  componentDidMount() {
+    this.props.fetchSpecies();
+  }
+
   render() {
     const HomePage = () => {
       return(
-        <Home species={this.props.species.filter((sp) => sp.featured)} />
+        <Home 
+        species={this.props.species.species.filter((sp) => sp.featured)} 
+        speciesLoading={this.props.species.isLoading}
+		    speciesFailed={this.props.species.errormsg}
+        />
       );
     }
     const LeaderWithId = ({match}) => {
