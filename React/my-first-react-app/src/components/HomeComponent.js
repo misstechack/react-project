@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardFooter, CardText, CardImg, Col, Row } from 'reactstrap';
 import { Loading } from './LoadingComponent';
 import Newsletter from './NewletterComponent';
+import { FadeTransform } from 'react-animation-components';
 
 class Home extends Component {
 
@@ -32,10 +33,14 @@ class Home extends Component {
                 return(
                     <Col sm="6">
                         <br />
-                        <Card key={sp.id}>
-                            <CardImg src={sp.image} alt={sp.name} />
-                            <CardFooter>{sp.name}</CardFooter>
-                        </Card>
+                        <FadeTransform in transformProps={{
+                            exitTransform: 'scale(0.5) translateY(-50%)'
+                        }}>
+                            <Card key={sp.id}>
+                                <CardImg src={sp.image} alt={sp.name} />
+                                <CardFooter>{sp.name}</CardFooter>
+                            </Card>
+                        </FadeTransform>
                         <CardText>{sp.description}</CardText>
                         <br />
                     </Col>

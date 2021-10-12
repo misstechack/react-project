@@ -3,6 +3,7 @@ import {Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Redirect, Route, Switch, withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import Category from './CategoryComponent';
 import Header from './HeaderComponent';
@@ -64,16 +65,21 @@ class Main extends Component {
     return (
       <div>
         <Header/>
-        <Switch>
-          <Route path="/home" component={HomePage} />
-          <Route exact path="/category" component={() => <Category species={this.props.species.species} />} />
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path="/about" component={About} />
-          <Route path="/about/leader/:leaderId" component={LeaderWithId} />
-          <Route path="/savewildlife" component={() => <SaveWildlife 
-          suggestions={this.props.suggestions} addSuggestion={this.props.addSuggestion} />} />
-          <Redirect to="/home" />
-        </Switch>
+        <TransitionGroup>
+          <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
+            <Switch location={this.props.location}>
+              <Route path="/home" component={HomePage} />
+              <Route exact path="/category" component={() => <Category species={this.props.species.species} />} />
+              <Route exact path="/contact" component={Contact} />
+              <Route exact path="/about" component={About} />
+              <Route path="/about/leader/:leaderId" component={LeaderWithId} />
+              <Route path="/savewildlife" component={() => <SaveWildlife 
+              suggestions={this.props.suggestions} addSuggestion={this.props.addSuggestion} />} />
+              <Redirect to="/home" />
+            </Switch>
+          </CSSTransition>
+        </TransitionGroup>
+        
         <RenderFooter/>
       </div>
     );

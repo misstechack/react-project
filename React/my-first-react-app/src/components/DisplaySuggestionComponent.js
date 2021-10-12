@@ -1,5 +1,6 @@
 import React from 'react';
 import { Media } from 'reactstrap';
+import { Fade, Stagger } from 'react-animation-components';
 
   function RenderSuggestion({suggestion}) {
     console.log(suggestion);
@@ -17,9 +18,11 @@ import { Media } from 'reactstrap';
   const DisplaySuggestion = (props) => {
     const suggestion = props.suggestions.map((suggestion) => {
         return (
+          <Fade in>
             <div key={suggestion.id} className="col-12 mt-5">
                <RenderSuggestion suggestion={suggestion} />
             </div>
+          </Fade>
         );
   });
   return(
@@ -27,7 +30,9 @@ import { Media } from 'reactstrap';
         <h4>Suggestions</h4>
         <hr />
         <Media list>
+          <Stagger in>
             {suggestion}
+          </Stagger>
         </Media>
     </div>
   );
